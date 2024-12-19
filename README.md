@@ -1,137 +1,190 @@
-# SSHXplorer - Remote Development Extension
+# SSHXplorer
 
-SSHXplorer is een krachtige extensie voor VS Code-gebaseerde IDE's die naadloze remote development via SSH mogelijk maakt. Perfect voor het werken met VPS servers, cloud instances en remote development omgevingen.
+A powerful VS Code extension for seamless SSH file management and GitHub integration.
 
 ## Features
 
-- 🔒 **Veilige SSH Verbindingen**
-  - Ondersteuning voor SSH key authenticatie
-  - Password-based authenticatie met veilige opslag
-  - Auto-reconnect bij verbindingsverlies
+### SSH File Management
+- 🔒 Secure SSH connections with connection pooling and auto-reconnect
+- 📁 Full file system operations (create, read, update, delete)
+- 📦 Bulk file operations with progress tracking
+- 🗜️ Built-in file compression support
+- 🔑 Secure credential management
+- 🛡️ IP filtering and security logging
 
-- 📁 **Remote Bestandsbeheer**
-  - Volledige bestandsverkenner voor remote bestanden
-  - Drag-and-drop functionaliteit
-  - Basis bestandsoperaties (kopiëren, plakken, hernoemen, verwijderen)
+### GitHub Integration (New in 2.0.0)
+- 🔄 Repository cloning and syncing
+- 🔀 Pull request management
+- 🤝 Interactive merge conflict resolution
+- 🌿 Branch management
+- 🔐 Secure authentication via VS Code API
+- ⚡ Real-time repository change events
+- 📝 Automated stash handling
+- 🛡️ Type-safe operations with enhanced error handling
+- 🔒 Improved session management
 
-- 🖥️ **Geïntegreerde Terminal**
-  - Direct toegang tot remote shell
-  - Multi-terminal ondersteuning
-  - Command history en auto-completion
+### User Interface
+- 🎨 Modern, customizable interface
+- 📱 Responsive design
+- ⌨️ Intuitive keyboard shortcuts
+- 📊 Status bar integration
+- 🎯 Context-aware menus
+- 🌈 Theme support
 
-- 🛠️ **Developer Experience**
-  - Status indicator in de IDE
-  - Quick-connect functionaliteit
-  - Multi-workspace ondersteuning
-  - VS Code thema integratie
+### Performance & Monitoring
+- 📈 Real-time performance metrics
+- 📊 Resource usage monitoring
+- 🔍 Error tracking and logging
+- 📱 Usage analytics
+- ⚡ Optimized for large files
 
-- 📚 **Interactive Tutorial**
-  - Built-in step-by-step tutorial
-  - Learn key features and shortcuts
-  - Interactive command examples
-  - Progress tracking
-  - Can be started anytime via Command Palette
+## Requirements
 
-## Installatie
+- VS Code 1.60.0 or higher
+- SSH client installed on your system
+- Git 2.30.0 or higher (for GitHub integration)
+- Node.js 14.0.0 or higher
 
-1. Download de laatste versie van SSHXplorer
-2. Installeer de extensie in je IDE:
-   - Windsurf: Via Extensions panel
-   - VS Code: Via VSIX installatie
-   - Cursor: Via Extensions marketplace
+## Installation
 
-## Gebruik
+1. Open VS Code
+2. Press `Ctrl+P` / `Cmd+P`
+3. Type `ext install sshxplorer`
+4. Press Enter
 
-1. Open de Command Palette (Ctrl+Shift+P)
-2. Type "SSHXplorer: Connect" en druk op Enter
-3. Vul je SSH verbindingsgegevens in:
-   - Host (IP of domeinnaam)
-   - Port (standaard: 22)
-   - Username
-   - Authenticatie methode (SSH key of password)
+## Getting Started
 
-## SSH Sleutel Configuratie
+1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Type "SSHXplorer: Connect" and press Enter
+3. Enter your SSH server details
+4. Start managing your remote files!
 
-### Genereer een nieuwe SSH key
-```bash
-ssh-keygen -t ed25519 -C "jouw@email.com"
+### GitHub Integration Setup
+
+1. Open the command palette
+2. Type "SSHXplorer: Sign in to GitHub" and press Enter
+3. Follow the authentication flow
+4. Start using GitHub features!
+
+## Configuration
+
+### SSH Settings
+- `sshxplorer.connections`: Predefined SSH connections
+- `sshxplorer.defaultPort`: Default SSH port (22)
+- `sshxplorer.timeout`: Connection timeout in milliseconds
+- `sshxplorer.keepalive`: Keep-alive interval
+
+### GitHub Settings
+- `sshxplorer.github.enabled`: Enable GitHub integration
+- `sshxplorer.github.defaultBranch`: Default branch for new repositories
+- `sshxplorer.github.autoSync`: Enable automatic repository syncing
+- `sshxplorer.github.stashBeforeSync`: Automatically stash changes before sync
+
+### Performance Settings
+- `sshxplorer.maxConcurrentOperations`: Maximum concurrent operations
+- `sshxplorer.compressionLevel`: Default compression level (0-9)
+- `sshxplorer.bufferSize`: Buffer size for file operations
+
+## Security
+
+- 🔐 Secure credential storage using VS Code's built-in secret storage
+- 🔒 SSH key management with passphrase support
+- 🛡️ Certificate validation
+- 🔍 IP filtering capabilities
+- 📝 Comprehensive security logging
+- 🔐 Secure GitHub token handling
+- 🛡️ Enhanced session management
+
+## Security Features 🛡️
+
+SSHXplorer provides comprehensive security scanning and monitoring capabilities to help you maintain the security of your projects.
+
+### Security Scanning Commands
+
+- **Comprehensive Security Scan** (`sshxplorer.security.comprehensiveScan`)
+  - Performs an in-depth security analysis of your entire workspace
+  - Detects sensitive files, code vulnerabilities, and dependency issues
+  - Generates a detailed HTML report with actionable insights
+
+- **Sensitive File Scan** (`sshxplorer.security.sensitiveFileScan`)
+  - Identifies potentially sensitive files in your project
+  - Scans for files containing credentials, tokens, or other confidential information
+  - Helps prevent accidental exposure of sensitive data
+
+- **Code Pattern Vulnerability Scan** (`sshxplorer.security.codePatternScan`)
+  - Analyzes source code for potential security vulnerabilities
+  - Detects dangerous code patterns like `eval()`, potential XSS risks
+  - Provides recommendations for code improvements
+
+- **Dependency Vulnerability Scan** (`sshxplorer.security.dependencyScan`)
+  - Checks project dependencies for known security vulnerabilities
+  - Identifies outdated or potentially risky packages
+  - Suggests updates to mitigate security risks
+
+- **File Integrity Check** (`sshxplorer.security.fileIntegrity`)
+  - Generates a SHA-256 hash for file content
+  - Helps track file changes and detect unauthorized modifications
+  - Easily copy hash for verification
+
+### Configuration Options
+
+You can customize security scanning in your VS Code settings:
+
+```json
+"sshxplorer.security.autoFix": true,
+"sshxplorer.securityScan.enabledChecks": [
+  "sensitiveFiles", 
+  "codePatterns", 
+  "dependencies", 
+  "comprehensiveScan", 
+  "fileIntegrity"
+]
 ```
 
-### Kopieer je public key naar de server
-```bash
-ssh-copy-id gebruiker@server
-```
+### Access Methods
 
-## Configuratie
+1. **Command Palette**: 
+   - Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux)
+   - Type the security command name
 
-SSHXplorer kan worden geconfigureerd via:
-1. VS Code settings (settings.json)
-2. Workspace settings
-3. SSH config file (~/.ssh/config)
+2. **Security View**:
+   - Click on the SSHXplorer icon in the Activity Bar
+   - Navigate to the Security tab
+   - Use the scan buttons in the view title
 
-### Voorbeeld SSH Config
-```
-Host mijn-vps
-    HostName 123.456.789.0
-    User username
-    Port 22
-    IdentityFile ~/.ssh/id_ed25519
-```
+3. **Context Menus**:
+   - Right-click on files in the Explorer or Editor
+   - Select "Check File Integrity" from the context menu
 
-## Troubleshooting
+### Best Practices
 
-### Veelvoorkomende Problemen
-
-1. **Verbinding wordt geweigerd**
-   - Controleer of SSH service actief is
-   - Verifieer firewall instellingen
-   - Check SSH key permissions
-
-2. **Authentication Failed**
-   - Controleer gebruikersnaam
-   - Verifieer SSH key path
-   - Check server logs
-
-3. **Trage Verbinding**
-   - Gebruik compression in SSH config
-   - Check netwerk latency
-   - Optimaliseer SSH instellingen
-
-## Development
-
-### Vereisten
-- Node.js 16.x of hoger
-- npm 7.x of hoger
-- TypeScript 5.x
-
-### Build Process
-```bash
-# Installeer dependencies
-npm install
-
-# Compileer de extensie
-npm run compile
-
-# Package voor distributie
-npm run package
-```
-
-## Security Best Practices
-
-1. Gebruik altijd SSH keys voor authenticatie
-2. Bewaar geen wachtwoorden in plaintext
-3. Houd je SSH client en server up-to-date
-4. Gebruik sterke SSH keys (ED25519 of RSA 4096+)
-5. Beperk SSH toegang via firewall regels
+- Regularly run comprehensive security scans
+- Address vulnerabilities promptly
+- Keep dependencies up to date
+- Use the file integrity check for critical files
 
 ## Contributing
 
-1. Fork de repository
-2. Creëer een feature branch
-3. Commit je wijzigingen
-4. Push naar de branch
-5. Open een Pull Request
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
+
+## Testing
+
+See [TEST_CHECKLIST.md](TEST_CHECKLIST.md) for our comprehensive test coverage.
+
+## Release Notes
+
+See [CHANGELOG.md](CHANGELOG.md) for release history and latest updates.
+
+## Support
+
+- 📚 [Documentation](https://github.com/PasperFection/sshxplorer/wiki)
+- 🐛 [Issue Tracker](https://github.com/PasperFection/sshxplorer/issues)
+- 💬 [Discussions](https://github.com/PasperFection/sshxplorer/discussions)
 
 ## License
 
-Dit project is gelicenseerd onder de MIT License - zie het [LICENSE](LICENSE) bestand voor details.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+**Note**: For the latest updates and features, always check the [CHANGELOG.md](CHANGELOG.md).

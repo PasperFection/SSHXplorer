@@ -1,0 +1,361 @@
+{
+  "name": "sshxplorer",
+  "displayName": "SSHXplorer",
+  "description": "Advanced SSH and GitHub Integration Extension",
+  "version": "2.1.0",
+  "galleryBanner": {
+    "color": "#007ACC",
+    "theme": "dark"
+  },
+  "publisher": "@PasperFection",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    
+    "onCommand:sshxplorer.github.scan",
+    "onCommand:sshxplorer.disconnect",
+    "onCommand:sshxplorer.startTutorial"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sshxplorer.connect",
+        "title": "SSHXplorer: Connect to Remote Server",
+        "category": "SSHXplorer"
+      },
+      {
+        "command": "sshxplorer.configure",
+        "title": "Configure Settings",
+        "category": "SSHXplorer"
+      },
+      {
+        "command": "sshxplorer.security.scan",
+        "title": "SSHXplorer: Perform Security Scan"
+      },
+      {
+        "command": "sshxplorer.runSecurityScan",
+        "title": "SSHXplorer: Run Security Scan"
+      },
+      {
+        "command": "sshxplorer.security.comprehensiveScan",
+        "title": "SSHXplorer: Comprehensive Security Scan",
+        "category": "SSHXplorer Security"
+      },
+      {
+        "command": "sshxplorer.security.sensitiveFileScan",
+        "title": "SSHXplorer: Scan Sensitive Files",
+        "category": "SSHXplorer Security"
+      },
+      {
+        "command": "sshxplorer.security.codePatternScan",
+        "title": "SSHXplorer: Scan Code Patterns",
+        "category": "SSHXplorer Security"
+      },
+      {
+        "command": "sshxplorer.security.dependencyScan",
+        "title": "SSHXplorer: Scan Dependencies",
+        "category": "SSHXplorer Security"
+      },
+      {
+        "command": "sshxplorer.security.fileIntegrity",
+        "title": "SSHXplorer: Check File Integrity",
+        "category": "SSHXplorer Security"
+      },
+      {
+        "command": "sshxplorer.analytics.show",
+        "title": "Show Analytics",
+        "category": "SSHXplorer"
+      },
+      {
+        "command": "sshxplorer.releases.create",
+        "title": "Create Release",
+        "category": "SSHXplorer"
+      },
+      {
+        "command": "sshxplorer.compliance.check",
+        "title": "Run Compliance Check",
+        "category": "SSHXplorer"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sshxplorer",
+          "title": "SSHXplorer",
+          "icon": "resources/icons/sshxplorer.png"
+        }
+      ]
+    },
+    "views": {
+      "sshxplorer": [
+        {
+          "id": "sshxplorer-security",
+          "name": "Security",
+          "icon": "resources/icons/security.png",
+          "contextualTitle": "Security Overview"
+        },
+        {
+          "id": "sshxplorer-analytics",
+          "name": "Analytics",
+          "icon": "resources/icons/analytics.png",
+          "contextualTitle": "Repository Analytics"
+        },
+        {
+          "id": "sshxplorer-releases",
+          "name": "Releases",
+          "icon": "resources/icons/releases.png",
+          "contextualTitle": "Release Management"
+        },
+        {
+          "id": "sshxplorer-compliance",
+          "name": "Compliance",
+          "icon": "resources/icons/compliance.png",
+          "contextualTitle": "Compliance Overview"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "sshxplorer.security.scan",
+          "when": "view == sshxplorer-security",
+          "group": "navigation"
+        },
+        {
+          "command": "sshxplorer.analytics.show",
+          "when": "view == sshxplorer-analytics",
+          "group": "navigation"
+        },
+        {
+          "command": "sshxplorer.releases.create",
+          "when": "view == sshxplorer-releases",
+          "group": "navigation"
+        },
+        {
+          "command": "sshxplorer.compliance.check",
+          "when": "view == sshxplorer-compliance",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "sshxplorer.security.comprehensiveScan",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "sshxplorer.security.sensitiveFileScan",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "sshxplorer.security.codePatternScan",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "sshxplorer.security.dependencyScan",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "sshxplorer.security.fileIntegrity",
+          "when": "activeTextEditorId != ''"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "sshxplorer.security.fileIntegrity",
+          "group": "security@1",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sshxplorer.security.fileIntegrity",
+          "group": "security@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SSHXplorer",
+      "properties": {
+        "sshxplorer.github.token": {
+          "type": "string",
+          "description": "GitHub Personal Access Token"
+        },
+        "sshxplorer.analytics.refreshInterval": {
+          "type": "number",
+          "default": 300,
+          "description": "Analytics refresh interval in seconds"
+        },
+        "sshxplorer.security.autoFix": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically fix security vulnerabilities when possible"
+        },
+        "sshxplorer.securityScan.enabledChecks": {
+          "type": "array",
+          "default": [
+            "sensitiveFiles",
+            "codePatterns",
+            "dependencies",
+            "comprehensiveScan",
+            "fileIntegrity"
+          ],
+          "description": "Configure which security checks to perform"
+        },
+        "sshxplorer.security.sensitiveFilePatterns": {
+          "type": "array",
+          "default": [
+            ".env",
+            "credentials.json",
+            "secrets.yml",
+            "config.json",
+            ".aws",
+            ".azure",
+            "*.pem",
+            "*.key"
+          ],
+          "description": "Additional file patterns to scan for sensitive information"
+        },
+        "sshxplorer.security.sensitiveContentPatterns": {
+          "type": "array",
+          "default": [
+            "password",
+            "secret",
+            "token",
+            "key",
+            "api_?key",
+            "access_?token",
+            "client_?secret"
+          ],
+          "description": "Regex patterns to detect sensitive content in files"
+        },
+        "sshxplorer.security.vulnerableDependencies": {
+          "type": "array",
+          "default": [
+            {
+              "name": "lodash",
+              "version": "<4.17.21",
+              "reason": "Prototype pollution vulnerability"
+            },
+            {
+              "name": "moment",
+              "version": "<2.29.2",
+              "reason": "Potential security issues"
+            },
+            {
+              "name": "axios",
+              "version": "<0.21.1",
+              "reason": "Potential SSRF vulnerability"
+            }
+          ],
+          "description": "List of known vulnerable dependencies with version constraints"
+        },
+        "sshxplorer.security.codeVulnerabilityPatterns": {
+          "type": "array",
+          "default": [
+            {
+              "pattern": "eval\\(",
+              "severity": "High",
+              "description": "Potential code injection via eval()"
+            },
+            {
+              "pattern": "new Function\\(",
+              "severity": "High",
+              "description": "Potential code injection via new Function()"
+            },
+            {
+              "pattern": "\\.innerHTML\\s*=",
+              "severity": "High",
+              "description": "Potential XSS vulnerability"
+            },
+            {
+              "pattern": "process\\.env",
+              "severity": "Medium",
+              "description": "Potential environment variable exposure"
+            }
+          ],
+          "description": "Custom code vulnerability patterns to scan for"
+        },
+        "sshxplorer.security.scanExcludePaths": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/.vscode/**"
+          ],
+          "description": "Paths to exclude from security scanning"
+        },
+        "sshxplorer.security.reportSeverityThreshold": {
+          "type": "string",
+          "default": "Medium",
+          "enum": [
+            "Low",
+            "Medium",
+            "High",
+            "Critical"
+          ],
+          "description": "Minimum severity level to include in security reports"
+        },
+        "sshxplorer.compliance.policies": {
+          "type": "array",
+          "default": [],
+          "description": "Custom compliance policies"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^5.1.2",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.85.0",
+    "@types/ssh2": "^0.5.53",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@types/ssh2": "^0.5.53",
+    "minimatch": "^9.0.3",
+    "ssh2": "^1.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/SSHXplorer"
+  },
+  "bugs": {
+    "url": "https://github.com/PasperFection/sshxplorer/issues"
+  },
+  "homepage": "https://github.com/PasperFection/sshxplorer#readme",
+  "keywords": [
+    "ssh",
+    "remote",
+    "github",
+    "security",
+    "github",
+    "security",
+    "analytics",
+    "releases",
+    "compliance",
+    "ci/cd",
+    "automation",
+    "deployment"
+  ],
+  "author": "SSHXplorer Team",
+  "license": "MIT",
+  "icon": "resources/icons/sshxplorer.png"
+}
