@@ -1,0 +1,80 @@
+.container {
+    padding: 15px;
+}
+
+.section {
+    margin-bottom: 20px;
+    background: var(--vscode-editor-background);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--vscode-foreground);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.button {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.button:hover {
+    background: var(--vscode-button-hoverBackground);
+}
+
+.repo-item {
+    padding: 10px;
+    border: 1px solid var(--vscode-widget-border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.repo-item:hover {
+    background: var(--vscode-list-hoverBackground);
+}
+
+.repo-name {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.repo-description {
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+.status-badge.success {
+    background: var(--vscode-testing-iconPassed);
+    color: var(--vscode-foreground);
+}
+
+.status-badge.pending {
+    background: var(--vscode-testing-iconQueued);
+    color: var(--vscode-foreground);
+}
+
+.status-badge.error {
+    background: var(--vscode-testing-iconFailed);
+    color: var(--vscode-foreground);
+}

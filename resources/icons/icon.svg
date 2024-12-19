@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="250" height="250">
+  <!-- Witte achtergrond 
+  <rect x="0" y="0" width="5" height="150" rx="10" ry="10" fill="#ffffff" stroke="#e1e1e1" stroke-width="5"/>
+  -->
+  <!-- Lijstitems (lichte versie van codeblokken) -->
+  <rect x="20" y="40" width="250" height="30" rx="5" ry="5" fill="#e4e4e4" stroke="#d1d1d1" stroke-width="2"/>
+  <rect x="35" y="80" width="210" height="30" rx="5" ry="5" fill="#fffff7" stroke="#d1d1d1" stroke-width="2"/>
+  <rect x="30" y="120" width="200" height="30" rx="5" ry="5" fill="#f3fff4" stroke="#d1d1d1" stroke-width="2"/>
+  <rect x="25" y="160" width="160" height="30" rx="5" ry="5" fill="#f8f8f8" stroke="#d1d1d1" stroke-width="2"/>
+
+  <!-- Pull-requests (vierkanten met ronde hoeken en een blauwe en oranje tinten) -->
+  <rect x="10" y="40" width="3" height="40" rx="0" ry="3" fill="#c5c5c5"/>
+  <rect x="10" y="80" width="3" height="40" rx="0" ry="3" fill="#ffffec"/>
+  <rect x="10" y="120" width="3" height="40" rx="0" ry="3" fill="#e5ffe7"/>
+  <rect x="10" y="160" width="3" height="40" rx="0" ry="3" fill="#c5c5c5"/>
+
+  <!-- Cursor (bash-stijl, lichtgroen voor een frissere uitstraling) -->
+  <rect x="10" y="1" width="3" height="40" fill="#000000" rx="0" ry="3"/>
+
+  <!-- Simulatie van code snippets als tekst (nu in blauwe en grijze tinten) -->
+  <text x="40" y="58" font-family="Courier New, monospace" font-size="12" fill="#000000">task 1: Install dependencies</text>
+  <text x="40" y="98" font-family="Courier New, monospace" font-size="12" fill="#0400ff">task 2: Initialize project</text>
+  <text x="40" y="138" font-family="Courier New, monospace" font-size="12" fill="#007c06">task 3: Configure ESLint</text>
+  <text x="40" y="178" font-family="Courier New, monospace" font-size="12" fill="#ff3300">task 4: Run tests</text>
+
+  <!-- Titel: VSCode Checklist in het lichte kleurenschema -->
+  <text x="25" y="25" font-family="Courier New, monospace" font-size="22" fill="#000000" font-weight="bold">VSCode-Checklist</text>
+</svg>

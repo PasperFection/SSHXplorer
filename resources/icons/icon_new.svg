@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background circle -->
+    <circle cx="64" cy="64" r="60" fill="#092fd6"/>
+    
+    <!-- Terminal window frame -->
+    <rect x="24" y="28" width="80" height="72" rx="1" fill="#000000"/>
+    
+    <!-- Terminal header -->
+    <rect x="24" y="28" width="80" height="12" rx="1" fill="#001333"/>
+    
+    <!-- Window buttons -->
+    <circle cx="32" cy="34" r="2" fill="#ff1900"/>
+    <circle cx="40" cy="34" r="2" fill="#ffcc00"/>
+    <circle cx="48" cy="34" r="2" fill="#00ff6a"/>
+    
+    <!-- SSH text/symbol -->
+    <text x="64" y="60" font-family="Castoro" font-size="15" fill="#fffb00" text-anchor="middle">SSHXplorer</text>
+    
+    <!-- File explorer symbol -->
+    <path d="M34 68 h60 M34 78 h40 M34 88 h50" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Connection lines -->
+    <path d="M44 78 l6 -6 l-6 -6" stroke="#fffb00" stroke-width="2" fill="none" stroke-linecap="block" stroke-linejoin="block"/>
+</svg>
+
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circle -->
+    <circle cx="64" cy="64" r="60" fill="#092fd6"/>
+    
+    <!-- Terminal window frame -->
+    <rect x="24" y="28" width="80" height="72" rx="1" fill="#000000"/>
+    
+    <!-- Terminal header -->
+    <rect x="24" y="28" width="80" height="12" rx="1" fill="#001333"/>
+    
+    <!-- Window buttons -->
+    <circle cx="32" cy="34" r="2" fill="#ff1900"/>
+    <circle cx="40" cy="34" r="2" fill="#ffcc00"/>
+    <circle cx="48" cy="34" r="2" fill="#00ff6a"/>
+    
+    <!-- SSH text/symbol -->
+    <text x="64" y="60" font-family="Josefin-Sans" font-size="15" font-style="normal" font-weight="400" fill="#fffb00" text-anchor="middle">SSHXplorer</text>
+    
+    <!-- File explorer symbol -->
+    <path d="M34 68 h60 M34 78 h40 M34 88 h50" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Connection lines -->
+    <path d="M44 78 l6 -6 l-6 -6" stroke="#fffb00" stroke-width="2" fill="none" stroke-linecap="block" stroke-linejoin="block"/>

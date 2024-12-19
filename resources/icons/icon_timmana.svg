@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <!-- Gradient definitions -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0046ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#092fd6;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="terminalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#001333;stop-opacity:0.95" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:0.95" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background circle with subtle shadow -->
+    <circle cx="64" cy="64" r="60" fill="url(#bgGradient)" filter="url(#shadow)"/>
+    
+    <!-- Drop shadow filter -->
+    <defs>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="2" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.3"/>
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Terminal window frame with gradient -->
+    <rect x="24" y="28" width="80" height="72" rx="3" fill="url(#terminalGradient)" filter="url(#shadow)"/>
+    
+    <!-- Terminal header with glass effect -->
+    <rect x="24" y="28" width="80" height="12" rx="3" fill="#001333" opacity="0.9"/>
+    
+    <!-- Window buttons with subtle glow -->
+    <circle cx="32" cy="34" r="2.5" fill="#ff1900" filter="url(#glow)"/>
+    <circle cx="40" cy="34" r="2.5" fill="#ffcc00" filter="url(#glow)"/>
+    <circle cx="48" cy="34" r="2.5" fill="#00ff6a" filter="url(#glow)"/>
+    
+    <!-- Glow filter -->
+    <defs>
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+        </filter>
+    </defs>
+
+    <!-- Title text with Timmana font -->
+    <text x="64" y="60" font-family="Timmana" font-size="14" font-weight="700" fill="#fffb00" text-anchor="middle" filter="url(#textGlow)">SSHXplorer</text>
+    
+    <!-- Text glow effect -->
+    <defs>
+        <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5"/>
+        </filter>
+    </defs>
+
+    <!-- File explorer symbol with animated effect -->
+    <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M34 68 h60" opacity="0.9"/>
+        <path d="M34 78 h40" opacity="0.8"/>
+        <path d="M34 88 h50" opacity="0.7"/>
+    </g>
+    
+    <!-- Connection lines with arrow -->
+    <path d="M44 78 l6 -6 l-6 -6" stroke="#fffb00" stroke-width="2.5" fill="none" 
+          stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+    <!-- Subtle overlay pattern -->
+    <rect x="24" y="28" width="80" height="72" rx="3" fill="url(#pattern)" opacity="0.05"/>
+    <defs>
+        <pattern id="pattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="#ffffff"/>
+            <rect x="2" y="2" width="1" height="1" fill="#ffffff"/>
+        </pattern>
+    </defs>
+
+    <!-- Font face declaration for Timmana -->
+    <defs>
+        <style type="text/css">
+            @font-face {
+                font-family: 'Timmana';
+                font-style: Bold;
+                font-weight: 700;
+                src: url('https://fonts.googleapis.com/css2?family=Timmana&amp;display=swap');
+            }
+        </style>
+    </defs>
+</svg>

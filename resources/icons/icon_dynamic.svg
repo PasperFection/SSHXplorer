@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <!-- Gradient definitions -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0046ff;stop-opacity:1">
+                <animate attributeName="stop-color" values="#0046ff;#092fd6;#0046ff" dur="3s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#092fd6;stop-opacity:1">
+                <animate attributeName="stop-color" values="#092fd6;#0046ff;#092fd6" dur="3s" repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+        <linearGradient id="terminalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#001333;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background circle -->
+    <circle cx="64" cy="64" r="60" fill="url(#bgGradient)"/>
+
+    <!-- Terminal window frame -->
+    <rect x="24" y="28" width="80" height="72" rx="3" fill="url(#terminalGradient)"/>
+    
+    <!-- Terminal header -->
+    <rect x="24" y="28" width="80" height="12" rx="3" fill="#001333"/>
+    
+    <!-- Window buttons with pulse animation -->
+    <circle cx="32" cy="34" r="2.5" fill="#ff1900">
+        <animate attributeName="r" values="2.5;2.8;2.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="40" cy="34" r="2.5" fill="#ffcc00">
+        <animate attributeName="r" values="2.5;2.8;2.5" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="48" cy="34" r="2.5" fill="#00ff6a">
+        <animate attributeName="r" values="2.5;2.8;2.5" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Title text -->
+    <text x="64" y="60" font-family="Timmana" font-size="14" font-weight="700" fill="#fffb00" text-anchor="middle">SSHXplorer</text>
+
+    <!-- File explorer symbol with typing animation -->
+    <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M34 68 h60">
+            <animate attributeName="stroke-dasharray" values="0,60;60,0" dur="1s" begin="0s" fill="freeze"/>
+        </path>
+        <path d="M34 78 h40">
+            <animate attributeName="stroke-dasharray" values="0,40;40,0" dur="0.8s" begin="0.3s" fill="freeze"/>
+        </path>
+        <path d="M34 88 h50">
+            <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="0.9s" begin="0.6s" fill="freeze"/>
+        </path>
+    </g>
+    
+    <!-- Connection lines with arrow -->
+    <path d="M44 78 l6 -6 l-6 -6" stroke="#fffb00" stroke-width="2.5" fill="none" 
+          stroke-linecap="round" stroke-linejoin="round">
+        <animate attributeName="stroke-dashoffset" values="18;0" dur="1s" begin="0.9s" fill="freeze"/>
+        <animate attributeName="stroke-dasharray" values="18,18;0,18" dur="1s" begin="0.9s" fill="freeze"/>
+    </path>
+
+    <!-- Font face declaration for Timmana -->
+    <defs>
+        <style type="text/css">
+            @font-face {
+                font-family: 'Timmana';
+                font-style: Bold;
+                font-weight: 700;
+                src: url('https://fonts.googleapis.com/css2?family=Timmana&amp;display=swap');
+            }
+        </style>
+    </defs>
+</svg>
